@@ -126,6 +126,16 @@ jobs:
         chmod +x $DIY_P2_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
+        
+    - name: Disable Chelsio crypto driver in config
+      run: |
+        cd openwrt
+        # 创建一个小的配置片段文件，用于禁用 Chelsio 选项
+        echo "CONFIG_CRYPTO_DEV_CHELSIO=y" > ci-disable-chelsio.cfg
+        # 将这个配置片段合并到当前的 .config 文件中
+        ./scripts/kconfig/merge_config.sh .config ci-disable-chelsio.cfg || true
+        # 验证配置是否已经正确设置
+        grep -E '^CONFIG_CRYPTO_DEV_CHELSIO=' .config || true
 
     - name: SSH 连接到 Actions
       uses: P3TERX/ssh2actions@v1.0.0
