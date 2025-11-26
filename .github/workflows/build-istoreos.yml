@@ -132,7 +132,7 @@ jobs:
     - name: Configure kernel with Chelsio driver enabled
       run: |
         make defconfig
-        echo "CONFIG_CRYPTO_DEV_CHELSIO=y" > chelsio_config.cfg
+        echo "CONFIG_CRYPTO_DEV_CHELSIO=m" > chelsio_config.cfg
         ./scripts/kconfig/merge_config.sh .config chelsio_config.cfg
         make olddefconfig
         grep CONFIG_CRYPTO_DEV_CHELSIO .config
