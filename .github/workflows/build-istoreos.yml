@@ -91,12 +91,12 @@ jobs:
     - name: 克隆源码
       working-directory: /workdir
       run: |
-        df -hT $PWD
-        git clone $REPO_URL -b ${{ matrix.REPO_BRANCH }} openwrt
-        ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
+        # df -hT $PWD
+        # git clone $REPO_URL -b ${{ matrix.REPO_BRANCH }} openwrt
+        # ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
 
         # 克隆源码到 openwrt/ 目录，同时拉取所有子模块（OpenWRT 必须要子模块才能编译）
-        git clone --depth 1 -b $REPO_BRANCH $REPO_URL openwrt
+        git clone --depth 1 -b $REPO_BRANCH -b ${{ matrix.REPO_BRANCH }} openwrt
         cd openwrt
         git submodule update --init --recursive  # 关键：初始化并拉取 OpenWRT 依赖的子模块（缺失会导致 Makefile 无效）
 
