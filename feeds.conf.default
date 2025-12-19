@@ -20,6 +20,7 @@ src-git third https://github.com/jjm2473/openwrt-third.git;main
 src-git diskman https://github.com/lisaac/luci-app-diskman.git;master
 src-git nas https://github.com/linkease/nas-packages.git;master
 src-git linkease_nas https://github.com/linkease/nas-packages.git;master
+src-git linkease_nas_luci https://github.com/linkease/nas-packages-luci.git;main
 src-git jjm2473_apps https://github.com/jjm2473/openwrt-apps.git;main
 # 网络工具 (版本锁定)
 src-git openclash https://github.com/vernesong/OpenClash.git;master
