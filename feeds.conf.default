@@ -16,6 +16,7 @@ src-git telephony https://github.com/openwrt/telephony.git;openwrt-24.10
 # iStore应用商店 (官方)
 src-git store https://github.com/linkease/istore.git;main
 # 增强功能 (精选)
+src-git third_party https://github.com/linkease/istore-packages.git;main
 src-git third https://github.com/jjm2473/openwrt-third.git;main
 src-git diskman https://github.com/lisaac/luci-app-diskman.git;master
 src-git nas https://github.com/linkease/nas-packages.git;master
